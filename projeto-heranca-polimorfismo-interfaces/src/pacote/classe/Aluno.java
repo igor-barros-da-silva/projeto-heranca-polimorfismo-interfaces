@@ -6,7 +6,7 @@ import java.util.List;
 import pacote.constante.StatusAluno;
 
 // Classe Aluno/Objeto nome que representa o Aluno.
-public class Aluno {
+public class Aluno extends Pessoa {
 
 	/*
 	 * Esses são os atributos do Aluno, representa as características do mundo real.
@@ -17,9 +17,9 @@ public class Aluno {
 	 * programador chame a variável de forma errada, alterando o valor dela causando
 	 * erro no sistema.
 	 */
-	private String nome;
-	private int idade;
-
+	private String dataMatricula;
+	private String nomeEscola;
+	private String serieMatriculado;
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
 	public void setDisciplinas(List<Disciplina> disciplinas) {
@@ -36,7 +36,7 @@ public class Aluno {
 	}
 
 	public Aluno(String nomePadrao) {
-		nome = nomePadrao;
+		super.nome = nomePadrao; // não sendo necessário pelo uso do "extends".
 	}
 
 	public Aluno(String nomePadrao, int idadePadrao) {
