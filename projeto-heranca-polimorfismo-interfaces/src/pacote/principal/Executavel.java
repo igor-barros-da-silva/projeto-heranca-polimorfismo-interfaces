@@ -2,12 +2,16 @@ package pacote.principal;
 
 import pacote.classe.Aluno;
 import pacote.classe.Diretor;
+import pacote.classe.Pessoa;
 import pacote.classe.Secretario;
 
 public class Executavel {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		// impedindo que ela possa ser instânciada.
+		// Pessoa pessoa = new Pessoa();
 		
 		Aluno aluno = new Aluno(); 
 		aluno.setNome("Igor");

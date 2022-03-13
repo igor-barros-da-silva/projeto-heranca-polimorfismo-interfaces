@@ -1,7 +1,7 @@
 package pacote.classe;
 
 // Classe pai/master/superclasse - atributos comuns a tods objetos filhos.
-public class Pessoa {
+public abstract class Pessoa {
 
 	// protected tem acesso a classe pai/filho, por intermédio so "super.nome".
 	protected String nome;
