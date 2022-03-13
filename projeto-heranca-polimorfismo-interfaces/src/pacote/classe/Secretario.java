@@ -30,4 +30,11 @@ public class Secretario extends Pessoa {
 		this.experiencia = experiencia;
 	}
 
+	@Override
+	public String toString() {
+		return "Secretario [registro=" + registro + ", nivelCargo=" + nivelCargo + ", experiencia=" + experiencia + "]";
+	}
+	
+	
+
 }

@@ -1,5 +1,6 @@
 package pacote.classe;
 
+// Classe pai/master/superclasse - atributos comuns a tods objetos filhos.
 public class Pessoa {
 
 	// protected tem acesso a classe pai/filho, por intermédio so "super.nome".
@@ -70,6 +71,12 @@ public class Pessoa {
 
 	public void setNomePai(String nomePai) {
 		this.nomePai = nomePai;
+	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + "]";
 	}
 
 }

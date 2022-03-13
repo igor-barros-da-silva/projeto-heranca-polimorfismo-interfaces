@@ -30,4 +30,10 @@ public class Diretor extends Pessoa {
 		this.titulaçao = titulaçao;
 	}
 
+	@Override
+	public String toString() {
+		return "Diretor [registroEducacao=" + registroEducacao + ", tempoDirecao=" + tempoDirecao + ", titulaçao="
+				+ titulaçao + "]";
+	}
+
 }
