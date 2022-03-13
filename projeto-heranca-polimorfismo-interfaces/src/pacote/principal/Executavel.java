@@ -11,16 +11,23 @@ public class Executavel {
 		
 		Aluno aluno = new Aluno(); 
 		aluno.setNome("Igor");
+		aluno.setIdade(19);
 		
 		Diretor diretor = new Diretor();
 		diretor.setRegistroGeral("5asd4561d32a13");
+		diretor.setIdade(20);
 		
 		Secretario secretario= new Secretario();
 		secretario.setExperiencia("Administração");
+		secretario.setIdade(17);
 		
 		System.out.println(aluno);
 		System.out.println(diretor);
 		System.out.println(secretario.getExperiencia());
+		
+		System.out.println(aluno.pessoaMaiorIdade() + "-" + aluno.msgMaiorIdade());
+		System.out.println(secretario.pessoaMaiorIdade());
+		System.out.println(diretor.pessoaMaiorIdade());
 	}
 
 }

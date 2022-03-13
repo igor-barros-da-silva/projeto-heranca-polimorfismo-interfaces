@@ -16,6 +16,11 @@ public class Pessoa {
 		// TODO Auto-generated method stub
 
 	}
+	
+	// Testando @Override
+	public Boolean pessoaMaiorIdade () {
+		return idade >= 18;
+	}
 
 	public String getNome() {
 		return nome;

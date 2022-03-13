@@ -140,4 +140,17 @@ public class Aluno extends Pessoa {
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", disciplinas=" + disciplinas + "]";
 	}
+
+	// Testando @Override - identifica método sobreescrito.
+	// Repare o construtor "super.".
+	@Override
+	public Boolean pessoaMaiorIdade() {
+		// TODO Auto-generated method stub
+		// return super.pessoaMaiorIdade();
+		return idade >= 21;
+	}
+
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Pessoa maior de idade! " : "Pessoa menor de idade!";
+	}
 }
