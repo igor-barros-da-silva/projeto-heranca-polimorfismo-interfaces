@@ -9,7 +9,7 @@ public class Executavel {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Aluno aluno = new Aluno();
+		Aluno aluno = new Aluno(); 
 		aluno.setNome("Igor");
 		
 		Diretor diretor = new Diretor();
