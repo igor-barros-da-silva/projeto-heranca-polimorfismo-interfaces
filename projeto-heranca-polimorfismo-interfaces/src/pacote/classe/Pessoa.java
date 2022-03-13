@@ -11,6 +11,9 @@ public abstract class Pessoa {
 	protected String numeroCpf;
 	protected String nomeMae;
 	protected String nomePai;
+	
+	// Todo método abstrato que fica na classe pai é obrigatória para as classe filhas.
+	public abstract double salario();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

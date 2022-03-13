@@ -34,6 +34,12 @@ public class Secretario extends Pessoa {
 	public String toString() {
 		return "Secretario [registro=" + registro + ", nivelCargo=" + nivelCargo + ", experiencia=" + experiencia + "]";
 	}
+
+	@Override
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 20 * 24;
+	}
 	
 	
 

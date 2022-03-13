@@ -32,6 +32,9 @@ public class Executavel {
 		System.out.println(aluno.pessoaMaiorIdade() + "-" + aluno.msgMaiorIdade());
 		System.out.println(secretario.pessoaMaiorIdade());
 		System.out.println(diretor.pessoaMaiorIdade());
+		
+		System.out.println(diretor.salario());
+		System.out.println(secretario.salario());
 	}
 
 }
