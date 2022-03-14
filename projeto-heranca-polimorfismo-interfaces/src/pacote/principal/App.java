@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import pacote.classe.Aluno;
 import pacote.classe.Disciplina;
 import pacote.classe.Secretario;
+import pacote.classesauxiliares.FuncaoAutorizacao;
 import pacote.constante.StatusAluno;
-import pacote.interfaces.PermitirAcesso;
 
 public class App {
 
@@ -20,16 +20,11 @@ public class App {
 		// Simples validação de permissão de acesso
 		String login = JOptionPane.showInputDialog("Informe o login?");
 		String senha = JOptionPane.showInputDialog("Informe o senha?");
-		
-		// Outra forma de trabalhar com interface e construtores
-		PermitirAcesso permitirAcesso = new Secretario(login, senha);
 
-		// Classe de interface, conseguimos ser mais específico dentro código.
-		PermitirAcesso secretario = new Secretario();
-		
-		List<Aluno> alunos = new ArrayList<Aluno>();
+		// Bloquear e Autorizar somente quem realmente tem o contrato 100% legítimo.
+		if (new FuncaoAutorizacao(new Secretario(login, senha)).autorizar()) {
 
-		if (permitirAcesso.autenticar()) {
+			List<Aluno> alunos = new ArrayList<Aluno>();
 
 			// Hashmap - Forma de carregar dados e recuperar por meio de valor.
 			// K = Chave, V = Valor
