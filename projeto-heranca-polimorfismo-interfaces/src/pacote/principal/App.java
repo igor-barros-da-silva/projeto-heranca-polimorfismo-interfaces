@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import pacote.classe.Aluno;
 import pacote.classe.Disciplina;
+import pacote.classe.Secretario;
 import pacote.constante.StatusAluno;
 
 public class App {
@@ -18,10 +19,14 @@ public class App {
 		// Simples validação de permissão de acesso
 		String login = JOptionPane.showInputDialog("Informe o login?");
 		String senha = JOptionPane.showInputDialog("Informe o senha?");
+		
+		Secretario secretario = new Secretario();
+		secretario.setLogin(login);
+		secretario.setSenha(senha);
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		if(login.equals("admin") && senha.equals("admin")) {		
+		if(secretario.autenticar()) {		
 		
 		// Hashmap - Forma de carregar dados e recuperar por meio de valor.
 		// K = Chave, V = Valor
@@ -105,6 +110,8 @@ public class App {
 		for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 			System.out.println("Nome: " + aluno.getNome() + "Lista de alunos reprovados: " + aluno.getAlunoAprovado1() + "Média: " + aluno.getMediaNota());
 		}
+		} else {
+			JOptionPane.showMessageDialog(null, "Acesso Negado! ");
 		}
 	}
 }
