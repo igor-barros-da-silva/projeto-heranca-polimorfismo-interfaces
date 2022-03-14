@@ -20,13 +20,16 @@ public class App {
 		// Simples validação de permissão de acesso
 		String login = JOptionPane.showInputDialog("Informe o login?");
 		String senha = JOptionPane.showInputDialog("Informe o senha?");
+		
+		// Outra forma de trabalhar com interface e construtores
+		PermitirAcesso permitirAcesso = new Secretario(login, senha);
 
 		// Classe de interface, conseguimos ser mais específico dentro código.
 		PermitirAcesso secretario = new Secretario();
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
 
-		if (new Secretario().autenticar(login,senha)) {
+		if (permitirAcesso.autenticar()) {
 
 			// Hashmap - Forma de carregar dados e recuperar por meio de valor.
 			// K = Chave, V = Valor
