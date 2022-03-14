@@ -25,9 +25,31 @@
 				<dt>Problema: </dt>
 				<dd>Queremos que apenas o secretário do nosso sistema pode acessar o sistema.</dd>
 				<dt>Solução: </dt>
-				<dd>O secretário deve implementar uma interface que mostra, obriga e realiza essa liberação.</dd>				
+				<dd>O secretário deve implementar uma interface que mostra, obriga e realiza essa liberação.</dd>
+				<br/>
+				<dt>O método</dt>
+					<dd>
+					public interface permitirAcesso() {return boolean autenticar()}
+					</dd>
+				<dd>
+						
 			</dl>
 		</aside>
 	</section>
+		<dl>
+			<dt>Abstração e Herança</dt>
+			<br/>
+				<dd>Usando o nosso exemplo de uma escola se escrevermos um método abstrato ou então escrever o método de Permitir acesso na classe Pessoa e usarmos a herança, todos os tipos de pessoas poderaõ acessar e isso não queremos permitir.
+				<dd>É um erro grave pensar que a herança e abstração irá resolver esse caso em 100%.</dd>
+				<dd>Resolve mas causam vários outros problemas.</dd>
+			<dt>Interface</dt>
+				<dd>Usando a interface conseguimos fazer um contrato com o tipo Secretário e obrigar apenas a um tipo de pessoa a acessar nosso sistema e com isso todos os outros tipos de pessoa não sabem absulutamente nada sobre a permissão de acesso.</dd>
+				<dd>Caso mais frente seja necessário permitir acesso ao Diretor então ele implementará a interface também.</dd>
+				<dd>Só fazemos o contrato e expomos essa permissão para quem for necessário.</dd>
+		</dl>
+	<section>
+		<h2>Diferença de método abstrato e interface</h2>
+	</section>
+	<footer>ref:https://www.diegomacedo.com.br/introducao-a-uml-e-seus-diagramas/</footer>
 </body>
 </html>
