@@ -14,21 +14,25 @@ import pacote.constante.StatusAluno;
 
 public class App {
 
-	// Main é um método auto executável em Java.
+	// Main ï¿½ um mï¿½todo auto executï¿½vel em Java.
 	public static void main(String[] args) {
+		
+		// Tratamento do erro.
+		try {
 
-		// Simples validação de permissão de acesso
+		// Simples validaï¿½ï¿½o de permissï¿½o de acesso
 		String login = JOptionPane.showInputDialog("Informe o login?");
 		String senha = JOptionPane.showInputDialog("Informe o senha?");
 
-		// Bloquear e Autorizar somente quem realmente tem o contrato 100% legítimo.
+		// Bloquear e Autorizar somente quem realmente tem o contrato 100% legï¿½timo.
 		if (new FuncaoAutorizacao(new Secretario(login, senha)).autorizar()) {
 
-			List<Aluno> alunos = new ArrayList<Aluno>();
+			// Gerando erro
+			List<Aluno> alunos = null;
 
 			// Hashmap - Forma de carregar dados e recuperar por meio de valor.
 			// K = Chave, V = Valor
-			// é uma lista que dentro dela temos uma chave que identifica uma sequêni de
+			// ï¿½ uma lista que dentro dela temos uma chave que identifica uma sequï¿½ni de
 			// valores.
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
@@ -43,16 +47,16 @@ public class App {
 				String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + quantidade + "?");
 				String idade = JOptionPane.showInputDialog("Qual a idade do aluno?");
 
-				// Objeto está na memória, new = cria um novo objeto.
-				// Método construtor.
+				// Objeto estï¿½ na memï¿½ria, new = cria um novo objeto.
+				// Mï¿½todo construtor.
 				Aluno aluno = new Aluno();
 
-				// Nome dinâmico através da entrada de dados com teclado.
+				// Nome dinï¿½mico atravï¿½s da entrada de dados com teclado.
 				// Convertendo integer para string.
 				aluno.setNome(nome);
 				aluno.setIdade(Integer.valueOf(idade));
 
-				// Criando a lista dinâmica das disciplinas do aluno.
+				// Criando a lista dinï¿½mica das disciplinas do aluno.
 				for (int posicao = 1; posicao <= 1; posicao++) {
 					String nomeDisciplina = JOptionPane.showInputDialog("Qual o nome da disciplina " + posicao + "?");
 					String notaDisciplina = JOptionPane.showInputDialog("Qual a nota da disciplina " + posicao + "?");
@@ -68,10 +72,10 @@ public class App {
 				int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
 
 				if (escolha == 0) {
-					// Opção Sim é 0
+					// Opï¿½ï¿½o Sim ï¿½ 0
 					int continuarRemover = 0;
 					int posicaoLista = 0;
-					// Remover disciplinas em repetição.
+					// Remover disciplinas em repetiï¿½ï¿½o.
 					while (continuarRemover == 0) {
 						String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3, 4?");
 						aluno.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - posicaoLista);
@@ -79,6 +83,8 @@ public class App {
 						continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
 					}
 				}
+				
+				// VariÃ¡vel nula.
 				alunos.add(aluno);
 			}
 
@@ -99,20 +105,25 @@ public class App {
 
 			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 				System.out.println("Nome: " + aluno.getNome() + "Lista de alunos aprovados: "
-						+ aluno.getAlunoAprovado1() + "Média: " + aluno.getMediaNota());
+						+ aluno.getAlunoAprovado1() + "Mï¿½dia: " + aluno.getMediaNota());
 			}
 
 			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
-				System.out.println("Nome: " + aluno.getNome() + "Lista de alunos em recuperação: "
-						+ aluno.getAlunoAprovado1() + "Média: " + aluno.getMediaNota());
+				System.out.println("Nome: " + aluno.getNome() + "Lista de alunos em recuperaï¿½ï¿½o: "
+						+ aluno.getAlunoAprovado1() + "Mï¿½dia: " + aluno.getMediaNota());
 			}
 
 			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 				System.out.println("Nome: " + aluno.getNome() + "Lista de alunos reprovados: "
-						+ aluno.getAlunoAprovado1() + "Média: " + aluno.getMediaNota());
+						+ aluno.getAlunoAprovado1() + "Mï¿½dia: " + aluno.getMediaNota());
 			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Acesso Negado! ");
+		}
+	}
+		catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas!");
 		}
 	}
 }
