@@ -14,6 +14,7 @@ import pacote.classe.Disciplina;
 import pacote.classe.Secretario;
 import pacote.classesauxiliares.FuncaoAutorizacao;
 import pacote.constante.StatusAluno;
+import pacote.excecao.ExcecaoProcessarNota;
 
 public class App {
 
@@ -22,9 +23,13 @@ public class App {
 		
 	// Tratamento do erro.
 		try {
-	
-			File file = new File("c://arquivo.txt");
-			Scanner scanner = new Scanner(file);
+			
+			try {	
+				File file = new File("c://AArquivo.txt");
+				Scanner scanner = new Scanner(file);
+			}catch (FileNotFoundException e) {
+				throw new ExcecaoProcessarNota("Um erro ocorreu ao processar as notas!");
+			}
 			
 		// Simples valida��o de permiss�o de acesso
 		String login = JOptionPane.showInputDialog("Informe o login?");
