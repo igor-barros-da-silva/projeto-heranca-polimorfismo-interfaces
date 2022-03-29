@@ -123,6 +123,8 @@ public class App {
 	}
 		catch (Exception e) {
 			// É OBRIGATÓRIO DEBUGAR E ENCONTRAR O ERRO
+			// Trabalhando com texto com a classe Java StringBuilder();
+			StringBuilder saida = new StringBuilder();
 			// Imprime erro na console.
 			e.printStackTrace();
 			// Mensagem do erro.
@@ -130,10 +132,13 @@ public class App {
 			
 			// Toda informações de erro em Array.
 			for(int i = 0; i < e.getStackTrace().length; i++) {
-				System.out.println("Erro de classe:" + e.getStackTrace()[i].getClassName());
-				System.out.println("Erro de método:" + e.getStackTrace()[i].getMethodName());
-				System.out.println("Erro de linha1:" + e.getStackTrace()[i].getLineNumber());
+				saida.append("\n Erro de classe:" + e.getStackTrace()[i].getClassName());
+				saida.append("\n Erro de método:" + e.getStackTrace()[i].getMethodName());
+				saida.append("\n Erro de linha:" + e.getStackTrace()[i].getLineNumber());
+				saida.append("\n Classe da Exceção:" + e.getClass().getName());
 			}
+			
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas:" + saida.toString());
 		}
 	}
 }
