@@ -28,6 +28,7 @@ public class App {
 		if (new FuncaoAutorizacao(new Secretario(login, senha)).autorizar()) {
 	
 			// Gerando erro
+			// List<Aluno> alunos = new ArrayList<Aluno>();
 			List<Aluno> alunos = null;
 	
 			// Hashmap - Forma de carregar dados e recuperar por meio de valor.
@@ -121,7 +122,7 @@ public class App {
 			JOptionPane.showMessageDialog(null, "Acesso Negado! ");
 		}
 	}
-		catch (Exception e) {
+		catch (NumberFormatException e) {
 			// É OBRIGATÓRIO DEBUGAR E ENCONTRAR O ERRO
 			// Trabalhando com texto com a classe Java StringBuilder();
 			StringBuilder saida = new StringBuilder();
@@ -136,9 +137,10 @@ public class App {
 				saida.append("\n Erro de método:" + e.getStackTrace()[i].getMethodName());
 				saida.append("\n Erro de linha:" + e.getStackTrace()[i].getLineNumber());
 				saida.append("\n Classe da Exceção:" + e.getClass().getName());
-			}
-			
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas:" + saida.toString());
-		}
+			}			
+			JOptionPane.showMessageDialog(null, "Erro de NumberFormatException:" + saida.toString());
+		}catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Erro de NullPointerException:" + e.getClass());
+		}		
 	}
 }
