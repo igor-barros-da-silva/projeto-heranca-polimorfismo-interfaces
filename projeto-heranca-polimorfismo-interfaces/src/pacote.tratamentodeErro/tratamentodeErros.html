@@ -4,89 +4,107 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-
-<h2>O que é uma exceção?</h2>
-
-<p>
-Quando criamos sistemas podem ocorrer erros imprevistos durante sua execução,
-esses erros são conhecidos como exceções e podem ser erros de lógica, conversões, acessos e etc.
-
-É muito difícil e quse impossível pra o programador prever todos os erros que podem acontecer
-nesse ponto o tratamento de exceções são obrigatórios para o sistema continuar funcionando.
-
-O tratamento da exceção:
-Fazendo e prevendo que algo pode acontecer os sistemas se recuperam e continuam a funcionar para o usuário.
-
-O NÃO tratamento da exceção:
-Isso acontece muito em sistemas e ocasiona a parada do sistema e com isso em um banco por exemplo irá ocasionar filas de clientes.
-Em uma empresa pode parar totalmente a produção da fábrica.
-
-<h2>Fatores internos e externos</h2>
-
-<p>
-A origem de um erro pode ser interna, problema no próprio código e esse erro pode ser corrigido rapidamente pela equipe.
-Outra origem pode ser externa o que muitas vezes a equipe de desenvolvimento não tem domínio e controle do que acontecer
-restando apenas informar aos usuários o motivo.
-
-Alguns motivos externos:
-Tentar abrir um arquivo que não existe.
-Tentar fazer consulta a um banco de dados remoto que não está disponível.
-Tentar escrever algo em um arquivo sobre o qual não se tem permissão de escrita.
-Tentar conectar em servidor inexistente ou fora de serviço.
-
-Alguns motivos internos:
-Tentar manipular um objeto que está com valor nulo.
-Dividir um número por zero.
-Tentar manipular um tipo de dado com se fosse outro.
-Tentar um utilizar um método ou classe não existente.
-
-</p>
-
-<h2>Arquitetura Java da Exceções</h2>
-
-Compilação:
-
-Erro antes da fase de execução.
-Impede de iniciar o sistema.
-
-Runtime:
-Erro durante a execução.
-Impede uma rotina do sistema.
-
-<h2>Estrutura do tratamento de Exceções</h2>
-
-<p>
-Dentro do TRY fica o sódigo que pode ocorrer uma exceção e CATCH é o ponto de caída do código após a interrrupção.
-A classe EXCEPTION tem todas as informações do erro.
-
-Toda exceção interrompe um bloco em um fluxo de processo.
-
-try {
-	// Códifo de regra de negócio - processos do sistema.
-	// ex. realização de uma venda.
-} catch (Exception e) {
-	e.printStackTrace(); // IMPRIME A PILHA DE ERRO NA CONSOLE
-}
-
-<h2>Erros mais comum para iniciantes</h2>
-
-<p>
-	1 - NullPointerException:
-		Erro número 1 do Java quer dizer existe uma variável ou referência nula.
-	2 - NumberFormatException:
-		Tentando converter uma string em um número mas a string estava vazia.
-	3 - FileNotFoundException:
-		Tentando carregar um arquivo mas não foi encontrado no caminho informado.
-	4 - ClassCastException:
-		Tentando converter um objeto B para A sendo que não são do mesmo tipo ou sem relação.
-	5 - classNoFoundException: 
-		Tentando carregar uma classe sendo que não foi encontrada.
-		
-	Existem finitas exceções.
+	<body>
 	
-</p>
-</p>
-
-<body>
+	<h2>O que é uma exceção?</h2>
+	
+		<p>
+		Quando criamos sistemas podem ocorrer erros imprevistos durante sua execução,
+		esses erros são conhecidos como exceções e podem ser erros de lógica, conversões, acessos e etc.
+		
+		É muito difícil e quse impossível pra o programador prever todos os erros que podem acontecer
+		nesse ponto o tratamento de exceções são obrigatórios para o sistema continuar funcionando.
+		
+		O tratamento da exceção:
+		Fazendo e prevendo que algo pode acontecer os sistemas se recuperam e continuam a funcionar para o usuário.
+		
+		O NÃO tratamento da exceção:
+		Isso acontece muito em sistemas e ocasiona a parada do sistema e com isso em um banco por exemplo irá ocasionar filas de clientes.
+		Em uma empresa pode parar totalmente a produção da fábrica.
+		</p>
+	<h2>Fatores internos e externos</h2>
+	
+	<p>
+	A origem de um erro pode ser interna, problema no próprio código e esse erro pode ser corrigido rapidamente pela equipe.
+	Outra origem pode ser externa o que muitas vezes a equipe de desenvolvimento não tem domínio e controle do que acontecer
+	restando apenas informar aos usuários o motivo.
+	
+	<h3>Alguns motivos externos:</h3>
+	
+	<ul>
+		<li>Tentar abrir um arquivo que não existe.</li>
+		<li>Tentar fazer consulta a um banco de dados remoto que não está disponível.</li>
+		<li>Tentar escrever algo em um arquivo sobre o qual não se tem permissão de escrita.</li>
+		<li>Tentar conectar em servidor inexistente ou fora de serviço.</li>
+	</ul>		
+	
+	<h3>Alguns motivos internos:</h3>
+	
+	<ul>
+		<li>Tentar manipular um objeto que está com valor nulo.</li>
+		<li>Dividir um número por zero.</li>
+		<li>Tentar manipular um tipo de dado com se fosse outro.</li>
+		<li>Tentar um utilizar um método ou classe não existente.</li>
+	</ul>
+	
+	</p>
+	
+	<h2>Arquitetura Java da Exceções</h2>
+	
+	<h3>Compilação:</h3>
+		<ul>
+			<li>Erro antes da fase de execução.</li>
+			<li>Impede de iniciar o sistema.</li>
+		</ul>
+	
+	<h3>Runtime:</h3>
+		<ul>
+			<li>Erro durante a execução.</li>
+			<li>Impede uma rotina do sistema.</li>
+		</ul>
+	
+	<h2>Estrutura do tratamento de Exceções</h2>
+	
+	<p>
+	Dentro do TRY fica o sódigo que pode ocorrer uma exceção e CATCH é o ponto de caída do código após a interrrupção.
+	A classe EXCEPTION tem todas as informações do erro.
+	</p>
+	
+	<h3>Toda exceção interrompe um bloco em um fluxo de processo.</h3>
+	
+	<span>
+		try {
+		// Códifo de regra de negócio - processos do sistema.
+		// ex. realização de uma venda.
+	} catch (Exception e) {
+		e.printStackTrace(); // IMPRIME A PILHA DE ERRO NA CONSOLE
+	}
+	</span>
+	
+	
+	<h2>Erros mais comum para iniciantes</h2>
+	
+	<p>
+		<ul>
+			<li>1 - NullPointerException:
+			Erro número 1 do Java quer dizer existe uma variável ou referência nula.</li>
+			<li>2 - NumberFormatException:
+			Tentando converter uma string em um número mas a string estava vazia.</li>
+			<li>3 - FileNotFoundException:
+			Tentando carregar um arquivo mas não foi encontrado no caminho informado.</li>
+			<li>4 - ClassCastException:
+			Tentando converter um objeto B para A sendo que não são do mesmo tipo ou sem relação.</li>
+			<li>4 - ClassCastException:
+			Tentando converter um objeto B para A sendo que não são do mesmo tipo ou sem relação.</li>
+		</ul>
+			
+		Existem finitas exceções.
+		
+	</p>
+	
+	<h2>Refatoração</h2>
+	
+	<p>
+	Refatoração é o processo de modificar um sistema de software para melhorar a estrutura interna do código sem alterar seu comportamento externo. O uso desta técnica aprimora a concepção de um software e evita a deterioração tão comum durante o ciclo de vida de um código.</p>
+	<body>
 </html>
