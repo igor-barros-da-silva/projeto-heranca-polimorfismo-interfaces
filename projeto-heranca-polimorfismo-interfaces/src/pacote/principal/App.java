@@ -1,8 +1,11 @@
 package pacote.principal;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -15,11 +18,14 @@ import pacote.constante.StatusAluno;
 public class App {
 
 	// Main � um m�todo auto execut�vel em Java.
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException { // Capturar somente a exceção FileNotFoundException.
 		
 	// Tratamento do erro.
 		try {
 	
+			File file = new File("c://arquivo.txt");
+			Scanner scanner = new Scanner(file);
+			
 		// Simples valida��o de permiss�o de acesso
 		String login = JOptionPane.showInputDialog("Informe o login?");
 		String senha = JOptionPane.showInputDialog("Informe o senha?");
@@ -133,14 +139,17 @@ public class App {
 			
 			// Toda informações de erro em Array.
 			for(int i = 0; i < e.getStackTrace().length; i++) {
-				saida.append("\n Erro de classe:" + e.getStackTrace()[i].getClassName());
-				saida.append("\n Erro de método:" + e.getStackTrace()[i].getMethodName());
-				saida.append("\n Erro de linha:" + e.getStackTrace()[i].getLineNumber());
-				saida.append("\n Classe da Exceção:" + e.getClass().getName());
+				saida.append("\n Erro de classe: \n" + e.getStackTrace()[i].getClassName());
+				saida.append("\n Erro de método: \n" + e.getStackTrace()[i].getMethodName());
+				saida.append("\n Erro de linha: \n" + e.getStackTrace()[i].getLineNumber());
+				saida.append("\n Classe da Exceção: \n" + e.getClass().getName());
 			}			
-			JOptionPane.showMessageDialog(null, "Erro de NumberFormatException:" + saida.toString());
+			JOptionPane.showMessageDialog(null, "Erro de NumberFormatException: \n" + saida.toString());
 		}catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Erro de NullPointerException:" + e.getClass());
-		}		
+			JOptionPane.showMessageDialog(null, "Erro de NullPointerException: \n" + e.getClass());
+		}catch (Exception e) { // Capturar todas exceções.
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro de classe: \n" + e.getClass().getName());
+		}	
 	}
 }
