@@ -150,6 +150,8 @@ public class App {
 		}catch (Exception e) { // Capturar todas exceções.
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null,"Erro de classe: \n" + e.getClass().getName());
+		}finally { // O bloco finally é utilizado para garantir que um código seja executado após um try , mesmo que uma exceção tenha sido gerada. ex. venda. 
+			JOptionPane.showMessageDialog(null, "Executado com sucesso o bloco FINALLY!");
 		}	
 	}
 }
