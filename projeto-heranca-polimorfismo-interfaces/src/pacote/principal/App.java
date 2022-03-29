@@ -22,15 +22,10 @@ public class App {
 	public static void main(String[] args) throws FileNotFoundException { // Capturar somente a exceção FileNotFoundException.
 		
 	// Tratamento do erro.
-		try {
+		try {	
 			
-			try {	
-				File file = new File("c://AArquivo.txt");
-				Scanner scanner = new Scanner(file);
-			}catch (FileNotFoundException e) {
-				throw new ExcecaoProcessarNota("Um erro ocorreu ao processar as notas!");
-			}
-			
+			lerArquivo();
+					
 		// Simples valida��o de permiss�o de acesso
 		String login = JOptionPane.showInputDialog("Informe o login?");
 		String senha = JOptionPane.showInputDialog("Informe o senha?");
@@ -152,11 +147,22 @@ public class App {
 			JOptionPane.showMessageDialog(null, "Erro de NumberFormatException: \n" + saida.toString());
 		}catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(null, "Erro de NullPointerException: \n" + e.getClass());
-		}catch (Exception e) { // Capturar todas exceções.
+		}catch (ExcecaoProcessarNota e) { // Capturar todas exceções.
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,"Erro de classe: \n" + e.getClass().getName());
+			JOptionPane.showMessageDialog(null,"Erro da exceção customizada: \n" + e.getClass().getName());
 		}finally { // O bloco finally é utilizado para garantir que um código seja executado após um try , mesmo que uma exceção tenha sido gerada. ex. venda. 
 			JOptionPane.showMessageDialog(null, "Executado com sucesso o bloco FINALLY!");
 		}	
 	}
+	
+	public static void lerArquivo() throws ExcecaoProcessarNota {
+		try {
+			File file = new File("c://arquivo.txt");
+			Scanner scanner = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			throw new ExcecaoProcessarNota(e.getMessage());
+		}
+		
+	}
+	
 }
