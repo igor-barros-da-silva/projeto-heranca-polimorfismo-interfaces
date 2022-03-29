@@ -34,8 +34,8 @@ public class App {
 		if (new FuncaoAutorizacao(new Secretario(login, senha)).autorizar()) {
 	
 			// Gerando erro
-			// List<Aluno> alunos = new ArrayList<Aluno>();
-			List<Aluno> alunos = null;
+			List<Aluno> alunos = new ArrayList<Aluno>();
+			//List<Aluno> alunos = null;
 	
 			// Hashmap - Forma de carregar dados e recuperar por meio de valor.
 			// K = Chave, V = Valor
@@ -128,7 +128,7 @@ public class App {
 			JOptionPane.showMessageDialog(null, "Acesso Negado! ");
 		}
 	}
-		catch (NumberFormatException e) {
+		catch (Exception e) {
 			// É OBRIGATÓRIO DEBUGAR E ENCONTRAR O ERRO
 			// Trabalhando com texto com a classe Java StringBuilder();
 			StringBuilder saida = new StringBuilder();
@@ -145,22 +145,17 @@ public class App {
 				saida.append("\n Classe da Exceção: \n" + e.getClass().getName());
 			}			
 			JOptionPane.showMessageDialog(null, "Erro de NumberFormatException: \n" + saida.toString());
-		}catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Erro de NullPointerException: \n" + e.getClass());
-		}catch (ExcecaoProcessarNota e) { // Capturar todas exceções.
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,"Erro da exceção customizada: \n" + e.getClass().getName());
-		}finally { // O bloco finally é utilizado para garantir que um código seja executado após um try , mesmo que uma exceção tenha sido gerada. ex. venda. 
+				}finally { // O bloco finally é utilizado para garantir que um código seja executado após um try , mesmo que uma exceção tenha sido gerada. ex. venda. 
 			JOptionPane.showMessageDialog(null, "Executado com sucesso o bloco FINALLY!");
 		}	
 	}
 	
-	public static void lerArquivo() throws ExcecaoProcessarNota {
+	public static void lerArquivo() throws FileNotFoundException {
 		try {
 			File file = new File("c://arquivo.txt");
 			Scanner scanner = new Scanner(file);
 		} catch (FileNotFoundException e) {
-			throw new ExcecaoProcessarNota(e.getMessage());
+			throw new FileNotFoundException(e.getMessage());
 		}
 		
 	}
