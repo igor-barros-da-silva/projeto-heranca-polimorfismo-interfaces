@@ -9,12 +9,12 @@ import pacote.constante.StatusAluno;
 public class Aluno extends Pessoa {
 
 	/*
-	 * Esses são os atributos do Aluno, representa as características do mundo real.
+	 * Esses sï¿½o os atributos do Aluno, representa as caracterï¿½sticas do mundo real.
 	 */
-	// Por padrão os atributos são privados.
+	// Por padrï¿½o os atributos sï¿½o privados.
 	/*
-	 * Private é para manter o controle de acesso a variáveis, evitando que o
-	 * programador chame a variável de forma errada, alterando o valor dela causando
+	 * Private ï¿½ para manter o controle de acesso a variï¿½veis, evitando que o
+	 * programador chame a variï¿½vel de forma errada, alterando o valor dela causando
 	 * erro no sistema.
 	 */
 	private String dataMatricula;
@@ -30,13 +30,13 @@ public class Aluno extends Pessoa {
 		return disciplinas;
 	}
 
-	// Método construtor - Cria os dados na memória, sendo padrão do Java.
+	// Mï¿½todo construtor - Cria os dados na memï¿½ria, sendo padrï¿½o do Java.
 	public Aluno() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Aluno(String nomePadrao) {
-		super.nome = nomePadrao; // não sendo necessário pelo uso do "extends".
+		super.nome = nomePadrao; // nï¿½o sendo necessï¿½rio pelo uso do "extends".
 	}
 
 	public Aluno(String nomePadrao, int idadePadrao) {
@@ -44,16 +44,16 @@ public class Aluno extends Pessoa {
 		idade = idadePadrao;
 	}
 
-	/* Métodos GETTERS E SETTERS do objeto. */
-	// SET é para adicionar ou receber dados dos atributos.
-	// GET é para obter o valores dos atributos.
+	/* Mï¿½todos GETTERS E SETTERS do objeto. */
+	// SET ï¿½ para adicionar ou receber dados dos atributos.
+	// GET ï¿½ para obter o valores dos atributos.
 
-	// Método SET que recebe dado.
-	public void setNome(String nome /* nome = paramêtro */) {
+	// Mï¿½todo SET que recebe dado.
+	public void setNome(String nome /* nome = paramï¿½tro */) {
 		this.nome = nome; // this = operador do Java
 	}
 
-	// Método GET que busca o dado.
+	// Mï¿½todo GET que busca o dado.
 	public String getNome() {
 		return nome;
 	}
@@ -66,18 +66,18 @@ public class Aluno extends Pessoa {
 		this.idade = idade;
 	}
 
-	// Método que retorna a média da nota.
+	// Mï¿½todo que retorna a mï¿½dia da nota.
 	public double getMediaNota() {
 		double somaNotas = 0.0;
 		for (Disciplina disciplina : disciplinas) {
-			somaNotas += disciplina.getNota();
+			somaNotas += disciplina.getMediaNota();
 		}
 		return somaNotas / disciplinas.size();
 	}
 
-	// Método que retorna a aprovação ou reprovação.
+	// Mï¿½todo que retorna a aprovaï¿½ï¿½o ou reprovaï¿½ï¿½o.
 	public boolean getAlunoAprovado() {
-		// Aproveitando o código.
+		// Aproveitando o cï¿½digo.
 		double media = this.getMediaNota();
 		if (media >= 60) {
 			return true;
@@ -85,7 +85,7 @@ public class Aluno extends Pessoa {
 			return false;
 	}
 
-	// Método que retorna se o aluno está em recuperação.
+	// Mï¿½todo que retorna se o aluno estï¿½ em recuperaï¿½ï¿½o.
 	public String getAlunoAprovado1() {
 		double media = this.getMediaNota();
 		if (media >= 50) {
@@ -141,7 +141,7 @@ public class Aluno extends Pessoa {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", disciplinas=" + disciplinas + "]";
 	}
 
-	// Testando @Override - identifica método sobreescrito.
+	// Testando @Override - identifica mï¿½todo sobreescrito.
 	// Repare o construtor "super.".
 	@Override
 	public Boolean pessoaMaiorIdade() {
