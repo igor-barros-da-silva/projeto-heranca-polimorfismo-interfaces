@@ -9,53 +9,41 @@ public class ArrayVetor {
 
 	public static void main(String[] args) {
 		
+		double[] notas = {9.0, 8.2, 8.9, 6.8};
+		double[] notas2 = {5.6, 8.4, 6.9, 8.7};
+		
 		Aluno aluno = new Aluno();		
 		aluno.setNome("José");
 		aluno.setDataNascimento("12/06/1992");
 		
 		Disciplina disciplina = new Disciplina();		
-		disciplina.setDisciplina("Java");
-		
-		double[] notas = {9.0, 8.2, 8.9, 6.8};
+		disciplina.setDisciplina("Java");		
 		disciplina.setNota(notas);
 		
 		aluno.getDisciplinas().add(disciplina);	
 		
-		System.out.println("Nome do aluno: " + aluno.getNome());
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Linguagem de Programação");
+		disciplina2.setNota(notas2);
 		
-		for(Disciplina d : aluno.getDisciplinas()) {
-						
-			System.out.println("Disciplina: " + d.getDisciplina());
-			System.out.println("As notas da disciplina são: ");
+		aluno.getDisciplinas().add(disciplina2);
+		
+		// Percorrendo array de objetos.
+		
+		Aluno[] arrayAlunos = new Aluno[1];
+		
+		arrayAlunos[0] = aluno;
+		
+		for(int pos = 0; pos < arrayAlunos.length; pos ++) {
+			System.out.println("Nome do aluno: " + arrayAlunos[pos].getNome());
 			
-			double notaMax = 0;
-			double notaMin = 0;
-			
-			for(int pos = 0; pos < d.getNota().length; pos ++) {
-				System.out.println("Nota na posição: " + pos + " é igual: " + d.getNota()[pos]);	
+			for(Disciplina d : arrayAlunos[pos].getDisciplinas()) {
+				System.out.println("Nome da disciplina eh:" + d.getDisciplina());
 				
-				if(pos == 0) {
-					notaMax = d.getNota()[pos];
-				} else {
-					if(d.getNota()[pos] > notaMax) {
-						notaMax = d.getNota()[pos];
-					}
+				for(int posnota = 0; posnota < d.getNota().length; posnota ++) {
+					System.out.println("As notas são: " + d.getNota()[posnota]);
 				}
-				
-				if(pos ==0) {
-					notaMin = d.getNota()[pos];
-				} else {
-					if(d.getNota()[pos] < notaMin) {
-						notaMin = d.getNota()[pos];
-					}
-				}	
-			}			
-			
-			System.out.println("A maior nota eh: " + notaMax);
-			System.out.println("A menor nota eh: " + notaMin);
-			System.out.println("Na disciplina: " + d.getDisciplina());
-			System.out.println("Com média: " + disciplina.getMediaNota());
-		}
+			}
+		}		
 	}
-
 }
