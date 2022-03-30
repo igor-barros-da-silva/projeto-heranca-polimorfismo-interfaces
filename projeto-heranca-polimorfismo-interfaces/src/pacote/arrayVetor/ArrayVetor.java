@@ -6,23 +6,20 @@ public class ArrayVetor {
 
 	public static void main(String[] args) {
 		
-		String pos = JOptionPane.showInputDialog("Quantas posições o array deve ter?");
+		// Passando valores diretamente.
 		
-		// Convertendo inteiro para string.
-		double[] notas = new double[Integer.parseInt(pos)];	
+						//   0	  1	   2    3
+		double[] valores = {9.5, 8.9, 9.6, 8,2};
 		
-		// Percorrendo o array de notas.
-		for(int i = 0; i < notas.length; i ++) {
-			String valor = JOptionPane.showInputDialog("Qual o valor da posição: " + i);
-			notas[i] = Double.parseDouble(valor);
-		}		
-		
-		// Array é muito limitado.
-		// Descobrindo o tamanho da  array com length.
-		for(int i = 0; i < notas.length; i++) {
-			//System.out.println("Nota na posição: " + i + " = " + notas[i]);
-			System.out.println("Nota: " + (i + 1) + " = " + notas[i]);
+		String[] val = {"A", "B", "C", "D"};		
+			
+		for(int i = 0; i < val.length; i ++) {
+			String valor = JOptionPane.showInputDialog("O valor na posição: " + i + " eh igual " + val[i]);
+			val[i] = valor;
 		}
+		
+		JOptionPane.showMessageDialog(null, val);	
+		
 	}
 
 }
