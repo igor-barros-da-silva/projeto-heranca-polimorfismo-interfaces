@@ -1,27 +1,25 @@
 package pacote.arrayVetor;
 
+import javax.swing.JOptionPane;
+
 public class ArrayVetor {
 
 	public static void main(String[] args) {
 		
-		// Array sempre deve ter a quantidade de posições definida.
-		double[] notas = new double[4];
-		// Atribuir valor na posição do array.
-		notas[0] = 9.8;
-		notas[1] = 7.3;
-		notas[2] = 9.3;
-		notas[3] = 7.8;
+		String pos = JOptionPane.showInputDialog("Quantas posições o array deve ter?");
 		
+		// Convertendo inteiro para string.
+		double[] notas = new double[Integer.parseInt(pos)];	
 		
-		//System.out.println(notas[3]);
-		/*
-		System.out.println("Nota 1 : " + notas[0]);
-		System.out.println("Nota 2 : " + notas[1]);
-		System.out.println("Nota 3 : " + notas[2]);
-		System.out.println("Nota 4 : " + notas[3]);
-		*/
+		// Percorrendo o array de notas.
+		for(int i = 0; i < notas.length; i ++) {
+			String valor = JOptionPane.showInputDialog("Qual o valor da posição: " + i);
+			notas[i] = Double.parseDouble(valor);
+		}		
 		
-		for(int i = 0; i < 4; i++) {
+		// Array é muito limitado.
+		// Descobrindo o tamanho da  array com length.
+		for(int i = 0; i < notas.length; i++) {
 			//System.out.println("Nota na posição: " + i + " = " + notas[i]);
 			System.out.println("Nota: " + (i + 1) + " = " + notas[i]);
 		}
