@@ -25,13 +25,14 @@ public class Disciplina {
 	}
 	
 	public double getMediaNota() {
+		
 		double somaTotal = 0;
 		
 		for(int pos = 0; pos < nota.length; pos ++) {
 			somaTotal += nota[pos];
 		}
 		
-		return somaTotal / nota.length;
+		return somaTotal / 4;
 	}
 
 	@Override
