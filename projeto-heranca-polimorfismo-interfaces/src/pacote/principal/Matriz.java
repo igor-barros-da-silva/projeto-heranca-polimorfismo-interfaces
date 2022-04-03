@@ -12,9 +12,19 @@ public class Matriz {
 		
 		notas[1][0] = 55;
 		notas[1][1] = 70;
-		notas[1][2] = 87;
+		notas[1][2] = 87;	
 		
-		System.out.println(notas);
+		// Percorre as linhas.
+		for(int poslinha = 0; poslinha < notas.length; poslinha ++) {
+			
+			System.out.println("==================================================");
+			
+			// Percorre as colunas.
+			for(int poscoluna = 0; poscoluna < notas[poslinha].length; poscoluna ++) {
+				
+				System.out.println("Valor da matriz: " + notas[poslinha][poscoluna]);
+			}
+		}
 
 	}
 
