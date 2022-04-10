@@ -5,6 +5,10 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -24,6 +28,25 @@ public class TelaTimeThread extends JDialog {
 	
 	private JButton jButton = new JButton("Start");
 	private JButton jButton2 = new JButton("Stop");
+	
+	private Runnable thread1 = new Runnable() {
+		
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			while (true) {
+				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").format(Calendar.getInstance().getTime()));
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	};
+	
+	private Thread thread1Time;
 	
 	/* Método construtor que executa o que estiver dentro no momento da abertura ou execução. */
 	public TelaTimeThread() {
@@ -70,6 +93,28 @@ public class TelaTimeThread extends JDialog {
 		jButton2.setPreferredSize(new Dimension(92, 25));
 		gridBagConstraints.gridx ++;
 		jPanel.add(jButton2, gridBagConstraints);
+		
+		jButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) { /* Executa o clique no botão. */
+				// TODO Auto-generated method stub
+				
+				thread1Time = new Thread(thread1);
+				thread1Time.start();
+				
+			}
+		});
+		
+		jButton2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				thread1Time.stop();
+			}
+		});
 		
 		add(jPanel, BorderLayout.WEST);
 		
