@@ -6,7 +6,7 @@ public class IntroThread {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		/* Thread processando em paralelo. */
+		/* Thread 1 processando em paralelo do envio de email. */
 		new Thread() {
 			/*
 			 * Método run onde ficam os procedimentos que você deseja executar
@@ -22,6 +22,36 @@ public class IntroThread {
 
 					try {
 						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+
+						e.printStackTrace();
+					} // Faz com que o thread atual suspenda a execução por um período especificado.
+				} // Fim do código da rotina executado em paralelo.
+			};
+
+		}.start(); /*
+					 * Iniciando o processamento paralelo, e liberando o programa para executar
+					 * qualquer outra thread.
+					 */
+		
+		// DIVISÃO DAS THREAD
+		
+		/* Thread 2 processando em paralelo do envio de nota fiscal. */
+		new Thread() {
+			/*
+			 * Método run onde ficam os procedimentos que você deseja executar
+			 * paralelamente.
+			 */
+			public void run() {
+				// Código da rotina.
+				// Início do código da rotina executado em paralelo.
+				for (int pos = 0; pos < 10; pos++) {
+
+					// Execução desse envio com um tempo de parada, ou com tempo determinado.
+					System.out.println("Executando alguma rotina, por exemplo envio de nota fiscal");
+
+					try {
+						Thread.sleep(2000);
 					} catch (InterruptedException e) {
 
 						e.printStackTrace();
